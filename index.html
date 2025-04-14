@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Fun Pub Quiz Tracker</title>
+</head>
+<body>
+    <header>
+        <h1>Fun Pub Quizz Tracker</h1>
+        <p>Tracking scores and rankings for our bi-weekly pub quiz league</p>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('standings')">League Standings</button>
+            <button class="tab" onclick="switchTab('rounds')">Round Scores</button>
+            <button class="tab" onclick="switchTab('admin')">Admin Panel</button>
+        </div>
+        
+        <div id="standings" class="tab-content">
+            <h2>Overall League Standings</h2>
+            <table id="standings-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Played</th>
+                        <th>Total Points</th>
+                        <th>Average</th>
+                    </tr>
+                </thead>
+                <tbody id="standings-body">
+                    <!-- Standings will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="rounds" class="tab-content" style="display: none;">
+            <h2>Round Scores</h2>
+            <div class="round-selector" id="round-selector">
+                <!-- Round buttons will be populated here -->
+            </div>
+            <table id="round-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="round-body">
+                    <!-- Round scores will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="admin" class="tab-content" style="display: none;">
+            <h2>Admin Panel</h2>
+            <div class="admin-panel">
+                <h3>Add/Edit Team</h3>
+                <div class="form-group">
+                    <label for="team-name">Team Name:</label>
+                    <input type="text" id="team-name" placeholder="Enter team name">
+                </div>
+                <button onclick="addTeam()">Add Team</button>
+                
+                <h3>Add Round</h3>
+                <div class="form-group">
+                    <label for="round-number">Round Number:</label>
+                    <input type="number" id="round-number" placeholder="Enter round number">
+                </div>
+                <div class="form-group">
+                    <label for="round-date">Date:</label>
+                    <input type="date" id="round-date">
+                </div>
+                <button onclick="addRound()">Add Round</button>
+                
+                <h3>Add Score</h3>
+                <div class="form-group">
+                    <label for="score-team">Team:</label>
+                    <select id="score-team">
+                        <!-- Teams will be populated here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="score-round">Round:</label>
+                    <select id="score-round">
+                        <!-- Rounds will be populated here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="score-value">Score:</label>
+                    <input type="number" id="score-value" placeholder="Enter score">
+                </div>
+                <button onclick="addScore()">Add Score</button>
+                
+                <h3>Export/Import Data</h3>
+                <button onclick="exportData()">Export Data</button>
+                <div class="form-group">
+                    <label for="import-data">Import Data:</label>
+                    <input type="file" id="import-data" accept=".json">
+                </div>
+                <button onclick="importData()">Import Data</button>
+            </div>
+        </div>
+    </div>       
+    <script src="scripts.js" type="text/javascript"></script>    
+</body>
+</html>
