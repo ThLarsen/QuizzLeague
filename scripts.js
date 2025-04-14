@@ -345,61 +345,88 @@ function generateRoundButtons() {
 }
 
 // Show scores for a specific round
+// Update the showRoundScores function to handle shared places
 function showRoundScores(roundId) {
     const tbody = document.getElementById('round-body');
     tbody.innerHTML = '';
     
     const roundScores = quizData.scores.filter(score => score.roundId === roundId);
+    
+    // Sort by score (descending)
     const sortedScores = roundScores.sort((a, b) => b.score - a.score);
     
-    sortedScores.forEach((score, index) => {
-        const team = quizData.teams.find(team => team.id === score.teamId);
-        if (team) {
-            const row = document.createElement('tr');
-            if (index < 3) {
-                row.className = `rank-${index + 1}`;
-            }
-            
-            row.innerHTML = `
-                <td>${index + 1}</td>
-                <td>${team.name}</td>
-                <td>${score.score}</td>
-            `;
-            
-            tbody.appendChild(row);
-        }
-    });
-    
-    // Show "no scores" message if needed
     if (sortedScores.length === 0) {
         const row = document.createElement('tr');
         row.innerHTML = '<td colspan="3" style="text-align: center;">No scores recorded for this round yet.</td>';
         tbody.appendChild(row);
+        return;
     }
+    
+    // Track shared places
+    let currentRank = 1;
+    let currentScore = sortedScores[0].score;
+    let skippedRanks = 0;
+    
+    sortedScores.forEach((score, index) => {
+        const team = quizData.teams.find(team => team.id === score.teamId);
+        if (!team) return;
+        
+        // Check if we need to update the rank (for a different score)
+        if (score.score < currentScore) {
+            currentScore = score.score;
+            // Skip ranks based on how many teams shared the previous score
+            currentRank = index + 1;
+        }
+        
+        const row = document.createElement('tr');
+        if (currentRank <= 3) {
+            row.className = `rank-${currentRank}`;
+        }
+        
+        row.innerHTML = `
+            <td>${currentRank}</td>
+            <td>${team.name}</td>
+            <td>${score.score}</td>
+        `;
+        
+        tbody.appendChild(row);
+    });
 }
 
 // Update standings table
+// Update the standings table to reflect the new calculation
 function updateStandingsTable() {
     const tbody = document.getElementById('standings-body');
     tbody.innerHTML = '';
     
     const standings = calculateStandings();
+    
+    // Sort by total points (descending), then by average (descending)
     const sortedStandings = standings.sort((a, b) => {
-        // Sort by total points (descending), then by average (descending)
         if (b.totalPoints !== a.totalPoints) {
             return b.totalPoints - a.totalPoints;
         }
         return b.average - a.average;
     });
     
+    // Handle shared places in the standings display
+    let currentRank = 1;
+    let currentPoints = sortedStandings.length > 0 ? sortedStandings[0].totalPoints : 0;
+    
     sortedStandings.forEach((standing, index) => {
+        // Check if we need to update the rank (for different points)
+        if (standing.totalPoints < currentPoints) {
+            currentPoints = standing.totalPoints;
+            currentRank = index + 1;
+        }
+        
         const row = document.createElement('tr');
-        if (index < 3) {
-            row.className = `rank-${index + 1}`;
+        if (currentRank <= 3) {
+            row.className = `rank-${currentRank}`;
         }
         
         row.innerHTML = `
-            <td>${index + 1}</td>
+            <td>${currentRank}</td>
             <td>${standing.teamName}</td>
             <td>${standing.played}</td>
             <td>${standing.totalPoints}</td>
@@ -411,13 +438,15 @@ function updateStandingsTable() {
 }
 
 // Calculate standings
+// Update the calculateStandings function to handle shared places
 function calculateStandings() {
     const standings = [];
     
+    // First calculate raw scores for each team
     quizData.teams.forEach(team => {
         const teamScores = quizData.scores.filter(score => score.teamId === team.id);
+        const totalPoints = calculateTotalPoints(team.id);
         const played = teamScores.length;
-        const totalPoints = teamScores.reduce((sum, score) => sum + score.score, 0);
         const average = played > 0 ? totalPoints / played : 0;
         
         standings.push({
@@ -430,6 +459,49 @@ function calculateStandings() {
     });
     
     return standings;
+}
+
+// New function to calculate total points with shared places
+function calculateTotalPoints(teamId) {
+    let totalPoints = 0;
+    
+    // Process each round
+    quizData.rounds.forEach(round => {
+        // Get all scores for this round
+        const roundScores = quizData.scores.filter(score => score.roundId === round.id);
+        
+        // Sort by score (descending)
+        const sortedScores = roundScores.sort((a, b) => b.score - a.score);
+        
+        // Skip if no scores for this round
+        if (sortedScores.length === 0) return;
+        
+        // Track positions
+        let currentRank = 1;
+        let currentScore = sortedScores[0].score;
+        let teamsAtCurrentScore = 0;
+        
+        // Find this team's position and calculate points
+        for (let i = 0; i < sortedScores.length; i++) {
+            // Check if we need to update the rank (for a different score)
+            if (sortedScores[i].score < currentScore) {
+                currentScore = sortedScores[i].score;
+                currentRank = i + 1;
+            }
+            
+            // If this is our team, calculate points
+            if (sortedScores[i].teamId === teamId) {
+                // Find the points for this rank from the point system
+                const pointsEntry = quizData.pointSystem.find(p => p.place === currentRank);
+                if (pointsEntry) {
+                    totalPoints += pointsEntry.points;
+                }
+                break; // Found our team, no need to continue
+            }
+        }
+    });
+    
+    return totalPoints;
 }
 
 // Export data
