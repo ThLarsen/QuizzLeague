@@ -84,15 +84,15 @@
         }
         
         .rank-1 {
-            background-color: rgba(255, 215, 0, 0.2);
+            background-color: rgba(255, 215, 0, 0.2) !important;
         }
         
         .rank-2 {
-            background-color: rgba(192, 192, 192, 0.2);
-        }
+            background-color: rgba(97, 97, 97, 0.2) !important;
+        } 
         
         .rank-3 {
-            background-color: rgba(205, 127, 50, 0.2);
+            background-color: rgba(205, 127, 50, 0.2) !important;
         }
         
         .admin-panel {
