@@ -419,6 +419,9 @@ function updateStandingsTable() {
             currentPoints = standing.totalPoints;
             currentRank = index + 1;
         }
+
+        // Generate round scores summary
+        const roundScoresSummary = generateRoundScoresSummary(standing.teamId);
         
         const row = document.createElement('tr');
         if (currentRank <= 3) {
@@ -429,6 +432,7 @@ function updateStandingsTable() {
             <td>${currentRank}</td>
             <td>${standing.teamName}</td>
             <td>${standing.played}</td>
+            <td class="round-scores">${roundScoresSummary}</td>
             <td>${standing.totalPoints}</td>
             <td>${standing.average.toFixed(2)}</td>
         `;
@@ -502,6 +506,51 @@ function calculateTotalPoints(teamId) {
     });
     
     return totalPoints;
+}
+
+// New improved function to generate round scores summary
+function generateRoundScoresSummary(teamId) {
+    // Get all rounds, sorted by number
+    const sortedRounds = [...quizData.rounds].sort((a, b) => a.number - b.number);
+    
+    // Create an array to hold scores, initialized with empty strings
+    const roundScores = Array(sortedRounds.length).fill("0");
+    
+    // Find all scores for this team
+    const teamScores = quizData.scores.filter(s => s.teamId === teamId);
+    
+    // For each round the team participated in, calculate their points
+    teamScores.forEach(teamScore => {
+        const round = quizData.rounds.find(r => r.id === teamScore.roundId);
+        if (round) {
+            const roundIndex = sortedRounds.findIndex(r => r.id === round.id);
+            if (roundIndex !== -1) {
+                // Get all scores for this round
+                const allRoundScores = quizData.scores.filter(s => s.roundId === round.id);
+                const sortedScores = allRoundScores.sort((a, b) => b.score - a.score);
+                
+                // Find team's position
+                let currentRank = 1;
+                let currentScore = sortedScores[0].score;
+                
+                for (let i = 0; i < sortedScores.length; i++) {
+                    if (sortedScores[i].score < currentScore) {
+                        currentScore = sortedScores[i].score;
+                        currentRank = i + 1;
+                    }
+                    
+                    if (sortedScores[i].teamId === teamId) {
+                        // Find the points for this rank
+                        const pointsEntry = quizData.pointSystem.find(p => p.place === currentRank);
+                        roundScores[roundIndex] = pointsEntry ? pointsEntry.points.toString() : "0";
+                        break;
+                    }
+                }
+            }
+        }
+    });
+    
+    return roundScores.join("-");
 }
 
 // Export data

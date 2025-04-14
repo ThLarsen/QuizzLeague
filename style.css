@@ -153,14 +153,27 @@
             background-color: var(--primary);
             color: white;
         }
-        
-        @media (max-width: 768px) {
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab {
-                margin-bottom: 4px;
-                border-radius: 4px;
-            }
-        }
+
+/* Add this to your existing style.css */
+.round-scores {
+    font-family: monospace;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+/* Adjust responsive styles for the wider table */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.5rem;
+    }
+    
+    .round-scores {
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
