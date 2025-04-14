@@ -469,48 +469,19 @@ function calculateStandings() {
     return standings;
 }
 
-// New function to calculate total points with shared places
+// New function to calculate total points
 function calculateTotalPoints(teamId) {
     let totalPoints = 0;
-    
-    // Process each round
-    quizData.rounds.forEach(round => {
-        // Get all scores for this round
-        const roundScores = quizData.scores.filter(score => score.roundId === round.id);
-        
-        // Sort by score (descending)
-        const sortedScores = roundScores.sort((a, b) => b.score - a.score);
-        
-        // Skip if no scores for this round
-        if (sortedScores.length === 0) return;
-        
-        // Track positions
-        let currentRank = 1;
-        let currentScore = sortedScores[0].score;
-        let teamsAtCurrentScore = 0;
-        
-        // Find this team's position and calculate points
-        for (let i = 0; i < sortedScores.length; i++) {
-            // Check if we need to update the rank (for a different score)
-            if (sortedScores[i].score < currentScore) {
-                currentScore = sortedScores[i].score;
-                currentRank = i + 1;
-            }
-            
-            // If this is our team, calculate points
-            if (sortedScores[i].teamId === teamId) {
-                // Find the points for this rank from the point system
-                const pointsEntry = quizData.pointSystem.find(p => p.place === currentRank);
-                if (pointsEntry) {
-                    totalPoints += pointsEntry.points;
-                }
-                break; // Found our team, no need to continue
-            }
-        }
+  
+    // Process each score entry for the team
+    quizData.scores.forEach((score) => {
+      if (score.teamId === teamId) {
+        totalPoints += score.score;
+      }
     });
-    
+  
     return totalPoints;
-}
+  }
 
 // New improved function to generate round scores summary
 function generateRoundScoresSummary(teamId) {
