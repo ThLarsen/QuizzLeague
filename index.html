@@ -9,26 +9,26 @@
 <body>
     <header>
         <h1>Fun Pub Quizz Tracker</h1>
-        <p>Tracking scores and rankings for our bi-weekly pub quiz league</p>
+        <p>Allmenn Quiz serien ,scoretracker</p>
     </header>
     
     <div class="container">
         <div class="tabs">
-            <button class="tab active" onclick="switchTab('standings')">League Standings</button>
-            <button class="tab" onclick="switchTab('rounds')">Round Scores</button>
+            <button class="tab active" onclick="switchTab('standings')">Serie Tabell</button>
+            <button class="tab" onclick="switchTab('rounds')">Runde Score</button>
             <button class="tab" onclick="switchTab('admin')">Admin Panel</button>
         </div>
         
         <div id="standings" class="tab-content">
-            <h2>Overall League Standings</h2>
+            <h2>Serie Totalt Tabell</h2>
             <table id="standings-table">
                 <thead>
                     <tr>
                         <th>Rank</th>
-                        <th>Team</th>
-                        <th>Played</th>
-                        <th>Total Points</th>
-                        <th>Average</th>
+                        <th>Lag</th>
+                        <th>Runder</th>
+                        <th>Poeng</th>
+                        <th>Snitt</th>
                     </tr>
                 </thead>
                 <tbody id="standings-body">
@@ -38,7 +38,7 @@
         </div>
         
         <div id="rounds" class="tab-content" style="display: none;">
-            <h2>Round Scores</h2>
+            <h2>Runder Score</h2>
             <div class="round-selector" id="round-selector">
                 <!-- Round buttons will be populated here -->
             </div>
@@ -46,7 +46,7 @@
                 <thead>
                     <tr>
                         <th>Rank</th>
-                        <th>Team</th>
+                        <th>Lag</th>
                         <th>Score</th>
                     </tr>
                 </thead>
