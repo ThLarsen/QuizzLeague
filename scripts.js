@@ -194,7 +194,11 @@ quizData = {
         { teamId: 34, roundId: 5, score: 1 },
         { teamId: 35, roundId: 5, score: 1 },
         { teamId: 36, roundId: 5, score: 1 },
-        
+        { teamId: 37, roundId: 5, score: 1 },
+        { teamId: 38, roundId: 5, score: 1 },
+        { teamId: 39, roundId: 5, score: 1 },
+        { teamId: 40, roundId: 5, score: 1 },
+        { teamId: 41, roundId: 5, score: 1 }
         // Round 6-10 (Apr 25 - Jun 20)
         // Round 6 (Apr 25) - No data in the picture
         // Round 7 (May 9) - No data in the picture
