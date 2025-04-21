@@ -11,6 +11,16 @@ function formatDate(dateString) {
 }
 
 /**
+ * Formats a datetime string to a localized date and time format
+ * @param {string} dateTimeString - DateTime string in ISO format
+ * @returns {string} - Formatted date and time string
+ */
+function formatDateTime(dateTimeString) {
+    const date = new Date(dateTimeString);
+    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+}
+
+/**
  * Calculates the total points for a team
  * @param {number} teamId - The team ID
  * @param {Array} scores - The array of score objects
@@ -60,4 +70,4 @@ function generateRoundScoresSummary(teamId, rounds, scores) {
     return roundScores.join("-");
 }
 
-export { formatDate, calculateTotalPoints, generateRoundScoresSummary };
+export { formatDate,formatDateTime, calculateTotalPoints, generateRoundScoresSummary };
