@@ -64,7 +64,7 @@ function updateStandingsTable(data) {
             standing.teamId, 
             data.rounds, 
             data.scores
-        );
+        );        
         
         const row = document.createElement('tr');
         if (currentRank <= 3) {
@@ -75,7 +75,7 @@ function updateStandingsTable(data) {
             <td>${currentRank}</td>
             <td>${standing.teamName}</td>
             <td>${standing.played}</td>
-            <td class="round-scores">${roundScoresSummary}</td>
+            <td class="round-scores" data-tooltip="${roundScoresSummary}">${roundScoresSummary}</td>
             <td>${standing.totalPoints}</td>
             <td>${standing.average.toFixed(2)}</td>
         `;

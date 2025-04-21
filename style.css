@@ -188,6 +188,91 @@ tr:hover {
     letter-spacing: 0.1em;
 }
 
+
+/* Tab switching animation */
+.tab-content {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tooltip styles for round scores */
+.round-scores {
+    position: relative;
+    cursor: help;
+}
+
+.round-scores:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 0;
+    z-index: 999;
+    width: max-content;
+    max-width: 250px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 0.85rem;
+    font-family: sans-serif;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.round-scores:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Improve round button interactions */
+.round-btn {
+    transform: translateY(0);
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.round-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.round-btn:active {
+    transform: translateY(0);
+}
+
+/* Smoother tab transitions */
+.tab {
+    position: relative;
+    overflow: hidden;
+}
+
+.tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.tab:hover::after {
+    transform: scaleX(0.8);
+}
+
+.tab.active::after {
+    transform: scaleX(1);
+    background-color: var(--accent);
+}
+
 /* Footer */
 footer {
     background-color: var(--secondary);
