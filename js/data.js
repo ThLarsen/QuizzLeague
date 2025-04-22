@@ -39,10 +39,10 @@ const quizData = {
         { id: 33, name: "Team Lund" },
         { id: 34, name: "Catalans" },
         { id: 35, name: "The Thee Musketeers" },
-        { id: 36, name: "Peter Lorenkrantz dispipler" },
+        { id: 36, name: "Peter Lorenkrantz disipler" },
         { id: 37, name: "Southampton 24/25" },
-        { id: 38, name: "Treff på Quiz" },
-        { id: 39, name: "Å-laget" },
+        { id: 38, name: "Træff på Quiz" },
+        { id: 39, name: "A-laget" },
         { id: 40, name: "The Skibidi Ben Dovers" },
         { id: 41, name: "Pannekake Profetene" }
     ],
