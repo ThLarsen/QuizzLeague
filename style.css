@@ -188,6 +188,10 @@ tr:hover {
     letter-spacing: 0.1em;
 }
 
+.round-scores {
+    position: relative;
+    cursor: help;
+}
 
 /* Tab switching animation */
 .tab-content {
@@ -308,29 +312,31 @@ footer {
     }
     
     /* Tooltip on small screens*/
+    .round-scores::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 125%;
+        left: 0;
+        z-index: 999;
+        width: max-content;
+        max-width: 250px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        background-color: #333;
+        color: white;
+        font-size: 0.85rem;
+        font-family: sans-serif;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    }
+    
     .round-scores:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 125%;
-    left: 0;
-    z-index: 999;
-    width: max-content;
-    max-width: 250px;
-    padding: 6px 12px;
-    border-radius: 4px;
-    background-color: #333;
-    color: white;
-    font-size: 0.85rem;
-    font-family: sans-serif;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(5px);
-    transition: opacity 0.2s, transform 0.2s;
-}
-
-.round-scores:hover::after {
-    opacity: 1;
-    transform: translateY(0);
-}
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 }
