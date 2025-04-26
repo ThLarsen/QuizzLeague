@@ -2,7 +2,7 @@
 
 // Initial quiz data structure
 const quizData = {
-    lastUpdated: "2025-04-21T12:00:00",
+    lastUpdated: "2025-26-21T16:41:00",
     teams: [
         { id: 1, name: "Kokken,Tyven, hans kone og hennes elskere" },
         { id: 2, name: "Quizly Bears" },
@@ -44,7 +44,9 @@ const quizData = {
         { id: 38, name: "Træff på Quiz" },
         { id: 39, name: "A-laget" },
         { id: 40, name: "The Skibidi Ben Dovers" },
-        { id: 41, name: "Pannekake Profetene" }
+        { id: 41, name: "Pannekake Profetene" },
+        { id: 42, name: "Vil På Spa" },
+        { id: 43, name: "Flesk og Duppe" }
     ],
     rounds: [
         { id: 1, number: 1, date: "2025-02-14" },
@@ -157,7 +159,25 @@ const quizData = {
         { teamId: 38, roundId: 5, score: 1 },
         { teamId: 39, roundId: 5, score: 1 },
         { teamId: 40, roundId: 5, score: 1 },
-        { teamId: 41, roundId: 5, score: 1 }
+        { teamId: 41, roundId: 5, score: 1 },
+
+        //Round 6 (Apr 25)
+        { teamId: 1, roundId: 6, score: 12 },
+        { teamId: 2, roundId: 6, score: 7 },
+        { teamId: 3, roundId: 6, score: 10 },
+        { teamId: 4, roundId: 6, score: 3 },
+        { teamId: 5, roundId: 6, score: 1 },
+        { teamId: 6, roundId: 6, score: 1 },
+        { teamId: 7, roundId: 6, score: 1 },
+        { teamId: 8, roundId: 6, score: 6 },
+        { teamId: 10, roundId: 6, score: 8 },
+        { teamId: 11, roundId: 6, score: 5 },        
+        { teamId: 13, roundId: 6, score: 1 },
+        { teamId: 17, roundId: 6, score: 4 },        
+        { teamId: 20, roundId: 6, score: 1 },        
+        { teamId: 22, roundId: 6, score: 3 },  
+        { teamId: 42, roundId: 6, score: 1 },        
+        { teamId: 43, roundId: 6, score: 1 }  
         // Round 6-10 (Apr 25 - Jun 20) - Add future rounds here
     ]
 };
