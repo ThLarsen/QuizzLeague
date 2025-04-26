@@ -2,7 +2,7 @@
 
 // Initial quiz data structure
 const quizData = {
-    lastUpdated: "2025-26-21T16:41:00",
+    lastUpdated: "2025-04-26T16:41:00",
     teams: [
         { id: 1, name: "Kokken,Tyven, hans kone og hennes elskere" },
         { id: 2, name: "Quizly Bears" },
