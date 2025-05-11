@@ -2,7 +2,7 @@
 
 // Initial quiz data structure
 const quizData = {
-    lastUpdated: "2025-04-26T16:41:00",
+    lastUpdated: "2025-05-11T20:00:00",
     teams: [
         { id: 1, name: "Kokken,Tyven, hans kone og hennes elskere" },
         { id: 2, name: "Quizly Bears" },
@@ -46,7 +46,10 @@ const quizData = {
         { id: 40, name: "The Skibidi Ben Dovers" },
         { id: 41, name: "Pannekake Profetene" },
         { id: 42, name: "Vil På Spa" },
-        { id: 43, name: "Flesk og Duppe" }
+        { id: 43, name: "Flesk og Duppe" },
+        { id: 44, name: "Taschlkailan" },
+        { id: 45, name: "Over Minstemålet" },
+        { id: 46, name: "Det e komplisert" }
     ],
     rounds: [
         { id: 1, number: 1, date: "2025-02-14" },
@@ -112,6 +115,7 @@ const quizData = {
         { teamId: 13, roundId: 3, score: 1 },
         { teamId: 14, roundId: 3, score: 1 },
         { teamId: 15, roundId: 3, score: 7 },
+        { teamId: 17, roundId: 3, score: 7 },
         { teamId: 16, roundId: 3, score: 4 },
         { teamId: 20, roundId: 3, score: 1 },
         { teamId: 30, roundId: 3, score: 1 },
@@ -147,8 +151,7 @@ const quizData = {
         { teamId: 10, roundId: 5, score: 8 },
         { teamId: 13, roundId: 5, score: 3 },
         { teamId: 17, roundId: 5, score: 1 },
-        { teamId: 19, roundId: 5, score: 1 },
-        { teamId: 20, roundId: 5, score: 1 },
+        { teamId: 19, roundId: 5, score: 1 },        
         { teamId: 21, roundId: 5, score: 1 },
         { teamId: 32, roundId: 5, score: 1 },
         { teamId: 33, roundId: 5, score: 1 },
@@ -177,7 +180,26 @@ const quizData = {
         { teamId: 20, roundId: 6, score: 1 },        
         { teamId: 22, roundId: 6, score: 3 },  
         { teamId: 42, roundId: 6, score: 1 },        
-        { teamId: 43, roundId: 6, score: 1 }  
+        { teamId: 43, roundId: 6, score: 1 },
+        
+        //Round 7 (May 9)
+        { teamId: 1, roundId: 7, score: 10 },
+        { teamId: 2, roundId: 7, score: 10 },
+        { teamId: 3, roundId: 7, score: 12 },
+        { teamId: 4, roundId: 7, score: 7 },
+        { teamId: 5, roundId: 7, score: 4 },        
+        { teamId: 7, roundId: 7, score: 1 },
+        { teamId: 8, roundId: 7, score: 3 },
+        { teamId: 9, roundId: 7, score: 5 },
+        { teamId: 13, roundId: 7, score: 3 },
+        { teamId: 15, roundId: 7, score: 1 },        
+        { teamId: 17, roundId: 7, score: 6 },
+        { teamId: 20, roundId: 7, score: 3 },
+        { teamId: 21, roundId: 7, score: 3 },
+        { teamId: 33, roundId: 7, score: 1 },        
+        { teamId: 44, roundId: 7, score: 1 },
+        { teamId: 45, roundId: 7, score: 1 },
+        { teamId: 46, roundId: 7, score: 1 }   
         // Round 6-10 (Apr 25 - Jun 20) - Add future rounds here
     ]
 };
