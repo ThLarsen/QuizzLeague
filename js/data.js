@@ -56,6 +56,7 @@ const quizData = {
         { id: 50, name: "Low 5" },
         { id: 51, name: "Soletti" },
         { id: 52, name: "Yo Gult" },
+        { id: 53, name: "UNN Forgetable" },
     ],
     rounds: [
         { id: 1, number: 1, date: "2025-02-14" },
@@ -223,6 +224,7 @@ const quizData = {
         { teamId: 47, roundId: 8, score: 10 },
         { teamId: 48, roundId: 8, score: 7 },
         { teamId: 49, roundId: 8, score: 2 },
+        { teamId: 53, roundId: 8, score: 7 },
         
         //Round 9
         { teamId: 1, roundId: 9, score: 8 },
