@@ -234,9 +234,11 @@ const quizData = {
         { teamId: 9, roundId: 9, score: 5 },
         { teamId: 17, roundId: 9, score: 7 },
         { teamId: 20, roundId: 9, score: 4 },
-        { teamId: 48, roundId: 9, score: 6 },       
+        { teamId: 48, roundId: 9, score: 6 },
+        { teamId: 50, roundId: 9, score: 4 },
         { teamId: 51, roundId: 9, score: 2 },
-        { teamId: 52, roundId: 9, score: 3 }
+        { teamId: 52, roundId: 9, score: 3 },
+        
 
     ]
 };
