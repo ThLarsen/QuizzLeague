@@ -49,7 +49,13 @@ const quizData = {
         { id: 43, name: "Flesk og Duppe" },
         { id: 44, name: "Taschlkailan" },
         { id: 45, name: "Over Minstemålet" },
-        { id: 46, name: "Det e komplisert" }
+        { id: 46, name: "Det e komplisert" },
+        { id: 47, name: "Post Quizz Clarity" },
+        { id: 48, name: "Stolpe i raden" },
+        { id: 49, name: "VKSNPPLRNG" },
+        { id: 50, name: "Low 5" },
+        { id: 51, name: "Soletti" },
+        { id: 52, name: "Yo Gult" },
     ],
     rounds: [
         { id: 1, number: 1, date: "2025-02-14" },
@@ -199,8 +205,40 @@ const quizData = {
         { teamId: 33, roundId: 7, score: 1 },        
         { teamId: 44, roundId: 7, score: 1 },
         { teamId: 45, roundId: 7, score: 1 },
-        { teamId: 46, roundId: 7, score: 1 }   
+        { teamId: 46, roundId: 7, score: 1 },   
         // Round 6-10 (Apr 25 - Jun 20) - Add future rounds here
+        
+        //Round 8
+        { teamId: 1, roundId: 8, score: 10 },
+        { teamId: 2, roundId: 8, score: 8 },
+        { teamId: 3, roundId: 8, score: 12 },
+        { teamId: 4, roundId: 8, score: 3 },
+        { teamId: 5, roundId: 8, score: 5 },
+        { teamId: 6, roundId: 8, score: 1 },  
+        { teamId: 8, roundId: 8, score: 6 },
+        { teamId: 13, roundId: 8, score: 1 },
+        { teamId: 14, roundId: 8, score: 1 },
+        { teamId: 17, roundId: 8, score: 5 },
+        { teamId: 20, roundId: 8, score: 1 },
+        { teamId: 47, roundId: 8, score: 10 },
+        { teamId: 48, roundId: 8, score: 7 },
+        { teamId: 49, roundId: 8, score: 2 },
+        //Round 9
+        { teamId: 1, roundId: 9, score: 8 },
+        { teamId: 2, roundId: 9, score: 12 },
+        { teamId: 3, roundId: 9, score: 8 },
+        { teamId: 4, roundId: 9, score: 3 },
+        { teamId: 5, roundId: 9, score: 4 },
+        { teamId: 6, roundId: 9, score: 0 },  
+        { teamId: 7, roundId: 9, score:0 },
+        { teamId: 8, roundId: 9, score: 5 },
+        { teamId: 9, roundId: 9, score: 5 },
+        { teamId: 17, roundId: 9, score: 7 },
+        { teamId: 20, roundId: 9, score: 4 },
+        { teamId: 22, roundId: 9, score: 6 },       
+        { teamId: 51, roundId: 9, score: 2 },
+        { teamId: 52, roundId: 8, score: 3 }
+
     ]
 };
 
