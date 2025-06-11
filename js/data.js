@@ -223,21 +223,20 @@ const quizData = {
         { teamId: 47, roundId: 8, score: 10 },
         { teamId: 48, roundId: 8, score: 7 },
         { teamId: 49, roundId: 8, score: 2 },
+        
         //Round 9
         { teamId: 1, roundId: 9, score: 8 },
         { teamId: 2, roundId: 9, score: 12 },
         { teamId: 3, roundId: 9, score: 8 },
         { teamId: 4, roundId: 9, score: 3 },
         { teamId: 5, roundId: 9, score: 4 },
-        { teamId: 6, roundId: 9, score: 0 },  
-        { teamId: 7, roundId: 9, score:0 },
         { teamId: 8, roundId: 9, score: 5 },
         { teamId: 9, roundId: 9, score: 5 },
         { teamId: 17, roundId: 9, score: 7 },
         { teamId: 20, roundId: 9, score: 4 },
-        { teamId: 22, roundId: 9, score: 6 },       
+        { teamId: 48, roundId: 9, score: 6 },       
         { teamId: 51, roundId: 9, score: 2 },
-        { teamId: 52, roundId: 8, score: 3 }
+        { teamId: 52, roundId: 9, score: 3 }
 
     ]
 };
