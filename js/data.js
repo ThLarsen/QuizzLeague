@@ -222,7 +222,6 @@ const quizData = {
         { teamId: 17, roundId: 8, score: 5 },
         { teamId: 20, roundId: 8, score: 1 },
         { teamId: 47, roundId: 8, score: 10 },
-        { teamId: 48, roundId: 8, score: 7 },
         { teamId: 49, roundId: 8, score: 2 },
         { teamId: 53, roundId: 8, score: 7 },
         
